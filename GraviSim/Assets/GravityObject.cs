@@ -18,7 +18,6 @@ public class GravityObject : MonoBehaviour
     void Update()
     {
         this.gameObject.transform.position += velocity * Time.deltaTime;
-        //transform.eulerAngles = new Vector3(0,Vector3.Dot(velocity, Vector3.up) * 90,90);
-        transform.eulerAngles = new Vector3(0, (velocity.normalized.x + 1) * 180 + (velocity.normalized.z + 1) * 180, -90);
+        transform.eulerAngles = new Vector3(90, Mathf.Atan2(velocity.normalized.x, velocity.normalized.z) * Mathf.Rad2Deg, 0);
     }
 }

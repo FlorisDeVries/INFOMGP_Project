@@ -63,7 +63,7 @@ public class Rocket : MonoBehaviour
                 direction = direction * (1/force);
                 force /= damping;
 
-                gameObject.transform.position = launchPad.transform.position + (launchPad.transform.localScale.x)/2 * direction;
+                gameObject.transform.position = launchPad.transform.position + ((launchPad.transform.localScale.x)/2 + 0.5f) * direction;
                 gameObject.GetComponent<GravityObject>().velocity = direction * force;
             }
         }
