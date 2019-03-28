@@ -18,6 +18,7 @@ public class Rocket : MonoBehaviour
 
     public Image liftoffMeter;
     public TextMeshProUGUI velocityText, angleText;
+    public GameObject flames;
     
     void Start()
     {
@@ -47,6 +48,7 @@ public class Rocket : MonoBehaviour
         if(selected && Input.GetMouseButtonUp(0)){
             // Launch the rocket
             gS.unPauseGame();
+            flames.SetActive(true);
             launched = true;
             return;
         }
