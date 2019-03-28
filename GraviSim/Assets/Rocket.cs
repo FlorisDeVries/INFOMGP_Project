@@ -1,18 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Rocket : MonoBehaviour
 {
     // Start is called before the first frame update
     bool selected = false, launched = false;
     public Vector3 direction = Vector3.zero;
-    public float force;
+    public float force, maxforce = 3;
     public GravitySystem gS;
 
     public float damping = 1000;
 
     public GameObject launchPad;
+
+    public Image liftoffMeter;
+    public TextMeshProUGUI velocityText, angleText;
     
     void Start()
     {
@@ -62,9 +67,16 @@ public class Rocket : MonoBehaviour
                 force = direction.magnitude;
                 direction = direction * (1/force);
                 force /= damping;
+                force = Mathf.Min(force, maxforce);
 
                 gameObject.transform.position = launchPad.transform.position + ((launchPad.transform.localScale.x)/2 + 0.5f) * direction;
                 gameObject.GetComponent<GravityObject>().velocity = direction * force;
+
+                float forcePercent = force / maxforce;
+                liftoffMeter.fillAmount = forcePercent;
+
+                velocityText.text = $"{force * 1000:F1} km/h";
+                angleText.text = $"{(Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + 360)%360:F1} °";
             }
         }
     }
