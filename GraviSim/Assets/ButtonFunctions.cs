@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,11 +23,11 @@ public class ButtonFunctions : MonoBehaviour
 
     public void PauseToggle(Button button){
         if(paused){
-            button.GetComponentInChildren<Text>().text = "Pause";
+            button.GetComponentInChildren<TextMeshProUGUI>().text = "Pause";
             gs.unPauseGame();
             paused = false;
         } else {
-            button.GetComponentInChildren<Text>().text = "Unpause";
+            button.GetComponentInChildren<TextMeshProUGUI>().text = "Unpause";
             gs.pauseGame();
             paused = true;
         }

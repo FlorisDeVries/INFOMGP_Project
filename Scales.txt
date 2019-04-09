@@ -1,0 +1,6 @@
+Mass: normal
+Distance to sun: divided by 10^10, in meters
+Speed: divided by 10000 in inspector, in m/s
+Rotational speed: divided by 10^9 (1 earth day takes 0.08583 Unity seconds)
+
+Planet size is irrelevant for calculations and set somewhat relatively by eye.
