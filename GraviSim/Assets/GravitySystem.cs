@@ -15,6 +15,10 @@ public class GravitySystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Add all gravity objects to the list
+        gravityObjects = new List<GravityObject>(GameObject.FindObjectsOfType<GravityObject>());
+        print($"Found {gravityObjects.Count} gravity objects.");
+
         pauseGame();
     }
 
@@ -26,14 +30,17 @@ public class GravitySystem : MonoBehaviour
             foreach(GravityObject gO_2 in gravityObjects){
                 if(gO_1 == gO_2)
                     continue;
-                
-                Vector3 r = gO_2.gameObject.transform.position - gO_1.gameObject.transform.position;
+                Vector3 r = (gO_2.gameObject.transform.position - gO_1.gameObject.transform.position) * 10e9F;
+                //print($"Distance ({gO_1.name} -> {gO_2.name}): {r.magnitude:E3} meters");
                 float dist = r.sqrMagnitude;
                 float force = gravitationalConstant * gO_1.mass * gO_2.mass / dist;
+                //print($"Gravity magnitude ({gO_1.name} -> {gO_2.name}): {force}");
 
                 float acc = force / gO_1.mass;
 
-                gO_1.velocity += acc * r * Time.deltaTime;
+                float scaledAcc = acc / 10e1F;
+
+                gO_1.velocity += scaledAcc * r.normalized * Time.deltaTime;
             }
         }
     }

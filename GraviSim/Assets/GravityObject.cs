@@ -21,7 +21,7 @@ public class GravityObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.gameObject.transform.position += velocity * Time.deltaTime;
+        this.gameObject.transform.position += velocity * 10000 * Time.deltaTime;
         if(text != null)
             text.text = $"{(velocity.magnitude * 1000):F1} km/h";
         transform.eulerAngles = new Vector3(90, Mathf.Atan2(velocity.normalized.x, velocity.normalized.z) * Mathf.Rad2Deg, 0);
