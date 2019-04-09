@@ -83,5 +83,10 @@ public class Rocket : MonoBehaviour
         }
     }
 
+    IEnumerator changeFontSize(){
+
+        yield return new WaitForSeconds(.1f);
+    }
+
 
 }
