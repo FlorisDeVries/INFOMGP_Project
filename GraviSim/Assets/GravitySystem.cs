@@ -32,10 +32,7 @@ public class GravitySystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Add all gravity objects to the list
-        gravityObjects = new List<GravityObject>(GameObject.FindObjectsOfType<GravityObject>());
-        print($"Found {gravityObjects.Count} gravity objects.");
-
+        PopulateList();
         pauseGame();
     }
 
@@ -73,6 +70,17 @@ public class GravitySystem : MonoBehaviour
                 float scaledAcc2 = acc2 / 10e-5F;
                 gO_2.velocity += scaledAcc2 * -r.normalized * Time.deltaTime;
             }
+        }
+    }
+
+    public void PopulateList(){
+        // Add all gravity objects to the list
+        gravityObjects = new List<GravityObject>(GameObject.FindObjectsOfType<GravityObject>());
+        print($"Found {gravityObjects.Count} gravity objects.");
+
+        foreach(GravityObject obj in gravityObjects){
+            obj.gameObject.GetComponent<SphereCollider>().enabled = false;
+            obj.gameObject.GetComponent<SphereCollider>().enabled = true;
         }
     }
 
