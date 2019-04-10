@@ -20,8 +20,6 @@ public class GravityObject : MonoBehaviour
 
     public float maxZoom = 5;
     public bool fixated = false;
-
-    // Should be refactored into the rocket class
     public TextMeshProUGUI text;
 
 
@@ -67,9 +65,6 @@ public class GravityObject : MonoBehaviour
         if(fixated)
             return;
         this.gameObject.transform.position += velocity * Time.deltaTime;
-        // // if(text != null)
-        // //     text.text = $"{(velocity.magnitude * 1000):F1} km/h";
-        // transform.eulerAngles = new Vector3(90, Mathf.Atan2(velocity.normalized.x, velocity.normalized.z) * Mathf.Rad2Deg, 0);
 
         if(trackLabel){
             // Scale the coordinates to screen

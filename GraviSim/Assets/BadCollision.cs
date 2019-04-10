@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EarthCollision : MonoBehaviour
+public class BadCollision : MonoBehaviour
 {
+    public string loseMessage = "Crashed into an object!";
     public GravitySystem gS;
 
     // Start is called before the first frame update
@@ -20,7 +21,7 @@ public class EarthCollision : MonoBehaviour
 
     void OnTriggerEnter(Collider other){
         if(other.name == "Rocket"){
-            gS.LoseLevel("Crashed into the earth!");
+            gS.LoseLevel(loseMessage);
         }
     }
 }
