@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum BodyNames{ Sun, Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto };
 
@@ -19,6 +21,13 @@ public class GravitySystem : MonoBehaviour
     bool printedHalfyearlyTime = false;
 
     public TextMeshProUGUI scaleValueText;
+
+    public GameObject winPanel, losePanel;
+    public TextMeshProUGUI loseExplanation;
+
+    void Awake(){
+        pauseGame();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -92,5 +101,29 @@ public class GravitySystem : MonoBehaviour
 
     public GameObject GetPlanetByName(string s){
         return gravityObjects.Find(a => a.name == s).gameObject;
+    }
+
+    public void ResetScene(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void GoToNextLevel(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void GoToScene(string sceneName){
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void WinLevel(){
+        pauseGame();
+        winPanel.SetActive(true);
+    }
+
+    public void LoseLevel(string reason)
+    {
+        pauseGame();
+        loseExplanation.text = reason;
+        losePanel.SetActive(true);
     }
 }

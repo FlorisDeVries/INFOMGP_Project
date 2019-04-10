@@ -14,17 +14,21 @@ public class CameraScripts : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        zoom = this.transform.position.y;   
     }
 
     // Update is called once per frame
     void Update()
     {
         Vector3 oldPos = this.transform.position;
-        oldPos.x = following.transform.position.x;
-        oldPos.z = following.transform.position.z;
 
-        if((startChangeDist / 2.0f) < new Vector2(following.transform.position.x - transform.position.x,following.transform.position.z - transform.position.z).sqrMagnitude){
+        // If we are not following anything, don't try to go to its position
+        if (following != null) {
+            oldPos.x = following.transform.position.x;
+            oldPos.z = following.transform.position.z;
+        }
+
+        if(following != null && (startChangeDist / 2.0f) < new Vector2(following.transform.position.x - transform.position.x,following.transform.position.z - transform.position.z).sqrMagnitude){
             oldPos.y = startChangeDist;
         } else {
             oldPos.y = zoom;

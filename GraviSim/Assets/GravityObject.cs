@@ -10,6 +10,8 @@ public class GravityObject : MonoBehaviour
     public Vector3 velocity;
     public bool trackLabel = true;
 
+    public bool fixated = false;
+
     // Should be refactored into the rocket class
     public TextMeshProUGUI text;
 
@@ -20,8 +22,10 @@ public class GravityObject : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
+        if(fixated)
+            return;
         this.gameObject.transform.position += velocity * Time.deltaTime;
         // // if(text != null)
         // //     text.text = $"{(velocity.magnitude * 1000):F1} km/h";
