@@ -13,12 +13,13 @@ public class GravityObject : MonoBehaviour
     public bool trackLabel = true;
 
     [Tooltip("The body that the body will be revolving around")]
-    public GameObject baryCenter;
-    public float distanceToBaryCenter;
+    public GameObject barycenter;
+    public float distanceToBarycenter;
 
-    public List<GravityObject> satallites;
+    public List<GravityObject> satellites;
 
     public float maxZoom = 5;
+    public bool fixated = false;
 
     // Should be refactored into the rocket class
     public TextMeshProUGUI text;
@@ -39,8 +40,8 @@ public class GravityObject : MonoBehaviour
             float sin = Mathf.Sin(angleRadians);
             float cos = Mathf.Cos(angleRadians);
 
-            float x = distanceToBaryCenter * sin;
-            float y = distanceToBaryCenter * cos;
+            float x = distanceToBarycenter * sin;
+            float y = distanceToBarycenter * cos;
 
             Vector2 v2Velocity = Rotate(new Vector2(velocity.x, velocity.y), -randomAngleDegrees);
             velocity = new Vector3(v2Velocity.x, 0, v2Velocity.y);            
@@ -51,18 +52,20 @@ public class GravityObject : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-        if(baryCenter != null){
-            float randomAngleDegree = RandomStart(baryCenter);
+        if(barycenter != null){
+            float randomAngleDegree = RandomStart(barycenter);
 
-            foreach(GravityObject go in satallites){
+            foreach(GravityObject go in satellites){
                 go.RandomStart(this.gameObject, randomAngleDegree);
             }
         }
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
+        if(fixated)
+            return;
         this.gameObject.transform.position += velocity * Time.deltaTime;
         // // if(text != null)
         // //     text.text = $"{(velocity.magnitude * 1000):F1} km/h";

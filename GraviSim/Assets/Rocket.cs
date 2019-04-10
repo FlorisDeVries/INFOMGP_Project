@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Rocket : MonoBehaviour
 {
@@ -19,15 +20,21 @@ public class Rocket : MonoBehaviour
     public Image liftoffMeter;
     public TextMeshProUGUI velocityText, angleText;
     public GameObject flames;
+
+    float startingDistance;
+    GravityObject gO;
     
     void Start()
     {
-        
+        startingDistance = this.transform.position.x;
+        gO = gameObject.GetComponent<GravityObject>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Vector3 velocity = gO.velocity;
+        transform.eulerAngles = new Vector3(90, Mathf.Atan2(velocity.normalized.x, velocity.normalized.z) * Mathf.Rad2Deg, 0);
         if(launched)
             return;
 
@@ -48,6 +55,7 @@ public class Rocket : MonoBehaviour
         if(selected && Input.GetMouseButtonUp(0)){
             // Launch the rocket
             gS.unPauseGame();
+            gO.fixated = false;
             flames.SetActive(true);
             launched = true;
             return;
@@ -71,13 +79,13 @@ public class Rocket : MonoBehaviour
                 force /= damping;
                 force = Mathf.Min(force, maxforce);
 
-                gameObject.transform.position = launchPad.transform.position + ((launchPad.transform.localScale.x)/2 + 0.5f) * direction;
-                gameObject.GetComponent<GravityObject>().velocity = direction * force;
+                gameObject.transform.position = launchPad.transform.position + (startingDistance) * direction;
+                gO.velocity = direction * force;
 
                 float forcePercent = force / maxforce;
                 liftoffMeter.fillAmount = forcePercent;
 
-                velocityText.text = $"{force * 1000:F1} km/h";
+                velocityText.text = $"{force * 10000:F1} km/h";
                 angleText.text = $"{(Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + 360)%360:F1} °";
             }
         }
@@ -87,6 +95,4 @@ public class Rocket : MonoBehaviour
 
         yield return new WaitForSeconds(.1f);
     }
-
-
 }
