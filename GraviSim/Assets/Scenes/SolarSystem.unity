@@ -1674,7 +1674,7 @@ MonoBehaviour:
   velocity: {x: 2.8758, y: 0, z: 0}
   trackLabel: 1
   barycenter: {fileID: 0}
-  distanceToBarycenter: 14.99823
+  distanceToBarycenter: 0.03823
   satellites: []
   maxZoom: 5
   fixated: 0
