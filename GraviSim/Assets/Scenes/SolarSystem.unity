@@ -329,10 +329,11 @@ MonoBehaviour:
   mass: 3.3011e+23
   velocity: {x: 4.7362, y: 0, z: 0}
   trackLabel: 1
-  baryCenter: {fileID: 1583985203}
-  distanceToBaryCenter: 5.791
-  satallites: []
+  barycenter: {fileID: 1583985203}
+  distanceToBarycenter: 5.791
+  satellites: []
   maxZoom: 5
+  fixated: 0
   text: {fileID: 665627345}
 --- !u!1001 &90177858
 PrefabInstance:
@@ -580,10 +581,11 @@ MonoBehaviour:
   mass: 1.02413e+26
   velocity: {x: 0.543, y: 0, z: 0}
   trackLabel: 1
-  baryCenter: {fileID: 1583985203}
-  distanceToBaryCenter: 453.7
-  satallites: []
+  barycenter: {fileID: 1583985203}
+  distanceToBarycenter: 453.7
+  satellites: []
   maxZoom: 5
+  fixated: 0
   text: {fileID: 918223712}
 --- !u!1001 &268259436
 PrefabInstance:
@@ -1644,10 +1646,11 @@ MonoBehaviour:
   mass: 1.8982e+27
   velocity: {x: 1.307, y: 0, z: 0}
   trackLabel: 1
-  baryCenter: {fileID: 1583985203}
-  distanceToBaryCenter: 77.86
-  satallites: []
+  barycenter: {fileID: 1583985203}
+  distanceToBarycenter: 77.86
+  satellites: []
   maxZoom: 5
+  fixated: 0
   text: {fileID: 163654492}
 --- !u!1 &432880311 stripped
 GameObject:
@@ -1670,10 +1673,11 @@ MonoBehaviour:
   mass: 7.342e+22
   velocity: {x: 2.8758, y: 0, z: 0}
   trackLabel: 1
-  baryCenter: {fileID: 0}
-  distanceToBaryCenter: 0.03823
-  satallites: []
+  barycenter: {fileID: 0}
+  distanceToBarycenter: 14.99823
+  satellites: []
   maxZoom: 5
+  fixated: 0
   text: {fileID: 2098583215}
 --- !u!114 &432880313
 MonoBehaviour:
@@ -2159,11 +2163,12 @@ MonoBehaviour:
   mass: 5.972e+24
   velocity: {x: 2.978, y: 0, z: 0}
   trackLabel: 1
-  baryCenter: {fileID: 1583985203}
-  distanceToBaryCenter: 14.96
-  satallites:
+  barycenter: {fileID: 1583985203}
+  distanceToBarycenter: 14.96
+  satellites:
   - {fileID: 432880312}
   maxZoom: 0.1
+  fixated: 0
   text: {fileID: 1431284633}
 --- !u!114 &521421154
 MonoBehaviour:
@@ -3375,10 +3380,11 @@ MonoBehaviour:
   mass: 5.6834e+26
   velocity: {x: 0.968, y: 0, z: 0}
   trackLabel: 1
-  baryCenter: {fileID: 1583985203}
-  distanceToBaryCenter: 143.353
-  satallites: []
+  barycenter: {fileID: 1583985203}
+  distanceToBarycenter: 143.353
+  satellites: []
   maxZoom: 5
+  fixated: 0
   text: {fileID: 2054523496}
 --- !u!1001 &868310088
 PrefabInstance:
@@ -4988,6 +4994,9 @@ MonoBehaviour:
   timeScale: 1
   paused: 1
   scaleValueText: {fileID: 523636721}
+  winPanel: {fileID: 0}
+  losePanel: {fileID: 0}
+  loseExplanation: {fileID: 0}
 --- !u!4 &1222474380
 Transform:
   m_ObjectHideFlags: 0
@@ -5741,10 +5750,11 @@ MonoBehaviour:
   mass: 8.681e+25
   velocity: {x: 0.68, y: 0, z: 0}
   trackLabel: 1
-  baryCenter: {fileID: 1583985203}
-  distanceToBaryCenter: 287.5032
-  satallites: []
+  barycenter: {fileID: 1583985203}
+  distanceToBarycenter: 287.5032
+  satellites: []
   maxZoom: 5
+  fixated: 0
   text: {fileID: 321734328}
 --- !u!1 &1499130009
 GameObject:
@@ -5937,10 +5947,11 @@ MonoBehaviour:
   mass: 6.4171e+23
   velocity: {x: 2.401, y: 0, z: 0}
   trackLabel: 1
-  baryCenter: {fileID: 1583985203}
-  distanceToBaryCenter: 22.79
-  satallites: []
+  barycenter: {fileID: 1583985203}
+  distanceToBarycenter: 22.79
+  satellites: []
   maxZoom: 5
+  fixated: 0
   text: {fileID: 1205797273}
 --- !u!1001 &1583985202
 PrefabInstance:
@@ -6048,10 +6059,11 @@ MonoBehaviour:
   mass: 1.989e+30
   velocity: {x: 0, y: 0, z: 0}
   trackLabel: 1
-  baryCenter: {fileID: 0}
-  distanceToBaryCenter: 0
-  satallites: []
+  barycenter: {fileID: 0}
+  distanceToBarycenter: 0
+  satellites: []
   maxZoom: 5
+  fixated: 0
   text: {fileID: 519970851}
 --- !u!122 &1583985205
 Halo:
@@ -6246,10 +6258,11 @@ MonoBehaviour:
   mass: 1.303e+22
   velocity: {x: 0.467, y: 0, z: 0}
   trackLabel: 1
-  baryCenter: {fileID: 1583985203}
-  distanceToBaryCenter: 590.6
-  satallites: []
+  barycenter: {fileID: 1583985203}
+  distanceToBarycenter: 590.6
+  satellites: []
   maxZoom: 5
+  fixated: 0
   text: {fileID: 1183452746}
 --- !u!1 &1692977015
 GameObject:
@@ -7569,10 +7582,11 @@ MonoBehaviour:
   mass: 4.8675e+24
   velocity: {x: 3.502, y: 0, z: 0}
   trackLabel: 1
-  baryCenter: {fileID: 1583985203}
-  distanceToBaryCenter: 10.82
-  satallites: []
+  barycenter: {fileID: 1583985203}
+  distanceToBarycenter: 10.82
+  satellites: []
   maxZoom: 5
+  fixated: 0
   text: {fileID: 1948950884}
 --- !u!1 &2085165883
 GameObject:
