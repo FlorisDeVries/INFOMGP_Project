@@ -25,6 +25,8 @@ public class GravitySystem : MonoBehaviour
     public GameObject winPanel, losePanel;
     public TextMeshProUGUI loseExplanation;
 
+    public bool resetColliders = false;
+
     void Awake(){
         pauseGame();
     }
@@ -78,9 +80,11 @@ public class GravitySystem : MonoBehaviour
         gravityObjects = new List<GravityObject>(GameObject.FindObjectsOfType<GravityObject>());
         print($"Found {gravityObjects.Count} gravity objects.");
 
-        foreach(GravityObject obj in gravityObjects){
-            obj.gameObject.GetComponent<SphereCollider>().enabled = false;
-            obj.gameObject.GetComponent<SphereCollider>().enabled = true;
+        if(resetColliders){
+            foreach(GravityObject obj in gravityObjects){
+                obj.gameObject.GetComponent<SphereCollider>().enabled = false;
+                obj.gameObject.GetComponent<SphereCollider>().enabled = true;
+            }
         }
     }
 
