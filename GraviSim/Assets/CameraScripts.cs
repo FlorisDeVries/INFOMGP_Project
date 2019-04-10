@@ -8,7 +8,7 @@ public class CameraScripts : MonoBehaviour
     public GravitySystem gs;
 
     public static float zoom = 30;
-    public static float maxZoom = 5;
+    public static float maxZoom = 0.023f;
     public static float zoomLevel = 30;
 
     float startChangeDist = 1000;

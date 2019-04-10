@@ -117,6 +117,7 @@ public class GravitySystem : MonoBehaviour
 
     public void WinLevel(){
         pauseGame();
+        LevelSaving.LevelCleared(Int32.Parse(SceneManager.GetActiveScene().name.Split(' ')[1]));
         winPanel.SetActive(true);
     }
 
