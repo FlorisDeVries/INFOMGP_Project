@@ -23,11 +23,13 @@ public class Rocket : MonoBehaviour
 
     float startingDistance;
     GravityObject gO;
+    public TextMeshProUGUI text;
     
     void Start()
     {
-        startingDistance = this.transform.position.x;
+        startingDistance = (this.transform.position - launchPad.transform.position).magnitude + this.transform.localScale.x / 2;
         gO = gameObject.GetComponent<GravityObject>();
+        gO.velocity = this.transform.position;
     }
 
     // Update is called once per frame
@@ -35,8 +37,11 @@ public class Rocket : MonoBehaviour
     {
         Vector3 velocity = gO.velocity;
         transform.eulerAngles = new Vector3(90, Mathf.Atan2(velocity.normalized.x, velocity.normalized.z) * Mathf.Rad2Deg, 0);
-        if(launched)
+        if(launched){
+            if(text != null)
+                text.text = $"{(velocity.magnitude * 1000):F1} km/h";
             return;
+        }
 
         if(!selected && Input.GetMouseButtonDown(0)){
             // Trace mouse

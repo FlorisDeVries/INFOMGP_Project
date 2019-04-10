@@ -20,8 +20,6 @@ public class GravityObject : MonoBehaviour
 
     public float maxZoom = 5;
     public bool fixated = false;
-
-    // Should be refactored into the rocket class
     public TextMeshProUGUI text;
 
 
