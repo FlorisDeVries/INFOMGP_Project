@@ -15,3 +15,16 @@ While this level mode is fun to mess around in, it sets some unrealistic values 
 ![Sandbox mode](/screen_3.png)
 
 Finally, we provided a sandbox mode where you can create your own gravitational playground. You can place bodies, edit their velocities and masses, and perhaps try to emulate a binary star system!
+
+## Installation
+
+A build for Windows can be found [here](https://github.com/FlorisDeVries/INFOMGP_Project/releases/tag/0.1).
+To check out our source code or create builds for other platforms, clone this repository and open the project in [Unity](https://unity.com/) (recommended version 2018.3.10 or up).
+
+## Credits
+
+Music from https://filmmusic.io
+
+All by Kevin MacLeod (https://incompetech.com)
+
+Licence: CC BY (http://creativecommons.org/licenses/by/4.0/)
