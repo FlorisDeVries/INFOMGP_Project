@@ -34,7 +34,7 @@ public class GoalCollision : MonoBehaviour
                 gS.WinLevel();
             } else {
                 print("Missed some fly-bies");
-                gS.LoseLevel($"Missed {visitedObjects.ToList().Count(p => !p)} fly-bies!");
+                gS.LoseLevel($"Missed {visitedObjects.ToList().Count(p => !p)} fly-by{(visitedObjects.ToList().Count(p => !p)==1?"":"s")}!");
             }
         }
     }
