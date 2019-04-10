@@ -24,17 +24,28 @@ public class Rocket : MonoBehaviour
     float startingDistance;
     GravityObject gO;
     public TextMeshProUGUI text;
+
+    public AudioClip launch, flight, crash;
+    AudioSource audio;
+
+    bool waitingForLiftoff;
+    Vector3 launchDirection;
+    float launchStrength;
     
     void Start()
     {
         startingDistance = (this.transform.position - launchPad.transform.position).magnitude + this.transform.localScale.x / 2;
         gO = gameObject.GetComponent<GravityObject>();
         gO.velocity = this.transform.position;
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(waitingForLiftoff)
+            return;
+
         Vector3 velocity = gO.velocity;
         transform.eulerAngles = new Vector3(90, Mathf.Atan2(velocity.normalized.x, velocity.normalized.z) * Mathf.Rad2Deg, 0);
         if(launched){
@@ -58,11 +69,15 @@ public class Rocket : MonoBehaviour
         }
 
         if(selected && Input.GetMouseButtonUp(0)){
+            launchDirection = direction;
+            launchStrength = force;
             // Launch the rocket
+            IEnumerator launchRoutine = launchRocket();
+            StartCoroutine(launchRoutine);
             gS.unPauseGame();
-            gO.fixated = false;
-            flames.SetActive(true);
             launched = true;
+            audio.PlayOneShot(launch);
+            waitingForLiftoff = true;
             return;
         }
 
@@ -94,6 +109,16 @@ public class Rocket : MonoBehaviour
                 angleText.text = $"{(Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + 360)%360:F1} °";
             }
         }
+    }
+
+    IEnumerator launchRocket(){
+        yield return new WaitForSecondsRealtime(3.8f);
+        waitingForLiftoff = false;
+        gO.velocity = launchDirection * launchStrength;
+        gO.fixated = false;
+        flames.SetActive(true);
+        audio.Play();
+        yield return null;
     }
 
     IEnumerator changeFontSize(){
