@@ -96,6 +96,7 @@ public class SandboxController : MonoBehaviour {
         if (Input.GetMouseButtonDown (0)) {
             if (addingBody) {
                 AddBody ();
+                dragOrigin = Vector3.zero;
             }
         }
 
@@ -161,12 +162,15 @@ public class SandboxController : MonoBehaviour {
         mass.text = objectToEdit.mass.ToString ();
 
         sizeSlider.value = objectToEdit.transform.localScale.x;
+
+        objectToEdit.gameObject.transform.Find("HaloGlow").gameObject.SetActive(true);
     }
 
     public void DoneEditingBody () {
         EnableTopLayer ();
         editingBody = false;
         dropBackEdit.gameObject.SetActive (false);
+        objectToEdit.gameObject.transform.Find("HaloGlow").gameObject.SetActive(false);
         objectToEdit = null;
         gravitySystem.PopulateList ();
     }
@@ -178,7 +182,11 @@ public class SandboxController : MonoBehaviour {
         addingBody = false;
         editingBody = false;
         dropBackEdit.gameObject.SetActive (false);
-        objectToEdit = null;
+        if(objectToEdit != null){
+            objectToEdit.gameObject.transform.Find("HaloGlow").gameObject.SetActive(false);
+            objectToEdit = null;
+        }
+        gravitySystem.PopulateList ();
     }
 
     void DisableTopLayer () {
