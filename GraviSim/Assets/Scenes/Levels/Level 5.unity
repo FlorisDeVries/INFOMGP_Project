@@ -6700,6 +6700,10 @@ PrefabInstance:
       propertyPath: spinParent
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 160422, guid: 27fe6d2a15a377f4587f716a2d37ca8a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27fe6d2a15a377f4587f716a2d37ca8a, type: 3}
 --- !u!1 &416818517 stripped
@@ -9276,6 +9280,10 @@ PrefabInstance:
       propertyPath: speed
       value: 97.4658
       objectReference: {fileID: 0}
+    - target: {fileID: 160422, guid: 27fe6d2a15a377f4587f716a2d37ca8a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27fe6d2a15a377f4587f716a2d37ca8a, type: 3}
 --- !u!1 &958812145 stripped
@@ -9397,7 +9405,7 @@ PrefabInstance:
     - target: {fileID: 2369268, guid: 27fe6d2a15a377f4587f716a2d37ca8a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 75ed044f89ec4374daf7550c385c04c0, type: 2}
+      objectReference: {fileID: 2100000, guid: f2669f1fd70a95946875738ce8cb3bdc, type: 2}
     - target: {fileID: 11491094, guid: 27fe6d2a15a377f4587f716a2d37ca8a, type: 3}
       propertyPath: speed
       value: 241.6042
@@ -9424,6 +9432,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 455774, guid: 27fe6d2a15a377f4587f716a2d37ca8a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 160422, guid: 27fe6d2a15a377f4587f716a2d37ca8a, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -9462,6 +9474,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   following: {fileID: 0}
   gs: {fileID: 1736889879}
+  zoom: 30
+  maxZoom: 0.023
 --- !u!45 &994352168
 Skybox:
   m_ObjectHideFlags: 0
@@ -12920,6 +12934,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 455774, guid: 27fe6d2a15a377f4587f716a2d37ca8a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 160422, guid: 27fe6d2a15a377f4587f716a2d37ca8a, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
