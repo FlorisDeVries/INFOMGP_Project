@@ -173,6 +173,7 @@ public class SandboxController : MonoBehaviour {
         objectToEdit.gameObject.transform.Find("HaloGlow").gameObject.SetActive(false);
         objectToEdit = null;
         gravitySystem.PopulateList ();
+        dragOrigin = Vector3.zero;
     }
 
     public void Cancel () {
@@ -187,6 +188,7 @@ public class SandboxController : MonoBehaviour {
             objectToEdit = null;
         }
         gravitySystem.PopulateList ();
+        dragOrigin = Vector3.zero;
     }
 
     void DisableTopLayer () {
