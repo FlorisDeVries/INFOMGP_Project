@@ -9,6 +9,9 @@ public class SandboxController : MonoBehaviour {
 
     public GravitySystem gravitySystem;
 
+    public Button pauseButton;
+    public ButtonFunctions buttonFunctions;
+
     public Canvas sandboxMainUI, normalUI;
 
     public GameObject bodyPrefab;
@@ -102,16 +105,19 @@ public class SandboxController : MonoBehaviour {
     }
 
     public void StartSimulation () {
+        Cancel();
         sandboxMainUI.gameObject.SetActive (false);
         normalUI.gameObject.SetActive (true);
         gravitySystem.PopulateList ();
     }
 
     public void StartEditMode () {
+        if(!gravitySystem.paused){
+            buttonFunctions.PauseToggle(pauseButton);
+        }
         sandboxMainUI.gameObject.SetActive (true);
         normalUI.gameObject.SetActive (false);
         Cancel ();
-        Time.timeScale = 0;
     }
 
     public void StartAddBody () {

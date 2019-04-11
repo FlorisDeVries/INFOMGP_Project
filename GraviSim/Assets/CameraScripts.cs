@@ -7,8 +7,8 @@ public class CameraScripts : MonoBehaviour
     public GameObject following;
     public GravitySystem gs;
 
-    public static float zoom = 30;
-    public static float maxZoom = 0.023f;
+    public float zoom = 30;
+    public float maxZoom = 0.023f;
     public static float zoomLevel = 30;
 
     float startChangeDist = 1000;
@@ -42,7 +42,7 @@ public class CameraScripts : MonoBehaviour
     // Changes the zoom for the camera
     // For reference, at level 5 only the sun is visible, at level 1100 Pluto is visible.
     public void ChangeZoom(float zoom){
-        CameraScripts.zoom = zoom;
+        this.zoom = zoom;
     }
 
     public void ChangeFollow(int i){
