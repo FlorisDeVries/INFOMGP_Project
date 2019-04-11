@@ -35,6 +35,8 @@ public class SandboxController : MonoBehaviour {
     public TMP_InputField velX, velZ;
     public TMP_InputField mass;
 
+    public Slider sizeSlider;
+
     public List<Material> materials;
     public Dropdown materialDropdown;
 
@@ -64,13 +66,22 @@ public class SandboxController : MonoBehaviour {
                     StartEditBody (hit.transform.gameObject.GetComponent<GravityObject> ());
                 }
             }
-        }
-
-        if (editingBody) {
-            return;
+            if (!EventSystem.current.IsPointerOverGameObject ())
+                dragOrigin = mousePosOnPlane;
         }
 
         if (EventSystem.current.IsPointerOverGameObject ()) {
+            return;
+        }
+
+        if (Input.GetMouseButton (0)) {
+            if (dragOrigin.magnitude > 0) {
+                Vector3 movePos = dragOrigin - mousePosOnPlane;
+                Camera.main.transform.position += movePos;
+            }
+        }
+
+        if (editingBody) {
             return;
         }
 
@@ -85,14 +96,6 @@ public class SandboxController : MonoBehaviour {
         if (Input.GetMouseButtonDown (0)) {
             if (addingBody) {
                 AddBody ();
-            }
-            dragOrigin = mousePosOnPlane;
-        }
-
-        if (Input.GetMouseButton (0)) {
-            if (dragOrigin.magnitude > 0) {
-                Vector3 movePos = dragOrigin - mousePosOnPlane;
-                Camera.main.transform.position += movePos;
             }
         }
 
@@ -156,6 +159,8 @@ public class SandboxController : MonoBehaviour {
         velZ.text = objectToEdit.velocity.z.ToString ();
 
         mass.text = objectToEdit.mass.ToString ();
+
+        sizeSlider.value = objectToEdit.transform.localScale.x;
     }
 
     public void DoneEditingBody () {
@@ -225,5 +230,9 @@ public class SandboxController : MonoBehaviour {
 
     public void AdjustMaterial(int option){
         objectToEdit.gameObject.transform.Find("MaterialMesh").GetComponent<MeshRenderer>().material =  materials[option];
+    }
+
+    public void AdjustScale(float value){
+        objectToEdit.gameObject.transform.localScale = new Vector3(value, value, value);
     }
 }
