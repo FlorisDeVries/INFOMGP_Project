@@ -409,6 +409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gS: {fileID: 838038427}
   flyByZones: []
+  AssistMass: 0
 --- !u!135 &153258266
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -566,6 +567,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   following: {fileID: 0}
   gs: {fileID: 838038427}
+  zoom: 30
+  maxZoom: 0.023
 --- !u!45 &210063607
 Skybox:
   m_ObjectHideFlags: 0
@@ -2331,6 +2334,10 @@ PrefabInstance:
       propertyPath: speed
       value: 0.85616
       objectReference: {fileID: 0}
+    - target: {fileID: 160422, guid: 27fe6d2a15a377f4587f716a2d37ca8a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27fe6d2a15a377f4587f716a2d37ca8a, type: 3}
 --- !u!1 &526192202 stripped
@@ -2742,6 +2749,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d74a8db997907494cb1c3f299519e5cd, type: 2}
+    - target: {fileID: 160422, guid: 27fe6d2a15a377f4587f716a2d37ca8a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27fe6d2a15a377f4587f716a2d37ca8a, type: 3}
 --- !u!1 &618023839
@@ -2934,6 +2945,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11491094, guid: 27fe6d2a15a377f4587f716a2d37ca8a, type: 3}
       propertyPath: spinParent
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 160422, guid: 27fe6d2a15a377f4587f716a2d37ca8a, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -8770,6 +8785,7 @@ MonoBehaviour:
   winPanel: {fileID: 61136089}
   losePanel: {fileID: 1185588294}
   loseExplanation: {fileID: 473638005}
+  resetColliders: 0
 --- !u!114 &838038428
 MonoBehaviour:
   m_ObjectHideFlags: 0
