@@ -31,6 +31,7 @@ public class Rocket : MonoBehaviour
     bool waitingForLiftoff;
     Vector3 launchDirection;
     float launchStrength;
+    ParticleSystem ps;
     
     void Start()
     {
@@ -38,6 +39,8 @@ public class Rocket : MonoBehaviour
         gO = gameObject.GetComponent<GravityObject>();
         gO.velocity = this.transform.position;
         audio = GetComponent<AudioSource>();
+        ps = GetComponent<ParticleSystem>();
+        ps.Pause();
     }
 
     // Update is called once per frame
@@ -118,6 +121,7 @@ public class Rocket : MonoBehaviour
         gO.fixated = false;
         flames.SetActive(true);
         audio.Play();
+        ps.Play();
         yield return null;
     }
 
