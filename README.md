@@ -18,7 +18,7 @@ Finally, we provided a sandbox mode where you can create your own gravitational 
 
 ## Installation
 
-A build for Windows can be found [here](https://github.com/FlorisDeVries/INFOMGP_Project/releases/tag/0.1).
+A build for Windows can be found [here](https://github.com/FlorisDeVries/INFOMGP_Project/releases/).
 To check out our source code or create builds for other platforms, clone this repository and open the project in [Unity](https://unity.com/) (recommended version 2018.3.10 or up).
 
 ## Credits
