@@ -2252,6 +2252,7 @@ MonoBehaviour:
   gS: {fileID: 836103133}
   flyByZones:
   - {fileID: 2056573132}
+  AssistMass: 0
 --- !u!1 &545758255
 GameObject:
   m_ObjectHideFlags: 0
@@ -3210,6 +3211,7 @@ MonoBehaviour:
   winPanel: {fileID: 1397717513}
   losePanel: {fileID: 266700144}
   loseExplanation: {fileID: 814946210}
+  resetColliders: 0
 --- !u!4 &836103134
 Transform:
   m_ObjectHideFlags: 0
@@ -8801,6 +8803,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   following: {fileID: 0}
   gs: {fileID: 836103133}
+  zoom: 30
+  maxZoom: 0.023
 --- !u!45 &1064410791
 Skybox:
   m_ObjectHideFlags: 0
@@ -12577,6 +12581,10 @@ PrefabInstance:
       propertyPath: speed
       value: 0.85616
       objectReference: {fileID: 0}
+    - target: {fileID: 160422, guid: 27fe6d2a15a377f4587f716a2d37ca8a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27fe6d2a15a377f4587f716a2d37ca8a, type: 3}
 --- !u!1 &2056573130 stripped
@@ -12901,6 +12909,10 @@ PrefabInstance:
       propertyPath: speed
       value: 1.705
       objectReference: {fileID: 0}
+    - target: {fileID: 160422, guid: 27fe6d2a15a377f4587f716a2d37ca8a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27fe6d2a15a377f4587f716a2d37ca8a, type: 3}
 --- !u!1001 &2058064168
@@ -12964,6 +12976,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11491094, guid: 27fe6d2a15a377f4587f716a2d37ca8a, type: 3}
       propertyPath: spinParent
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 160422, guid: 27fe6d2a15a377f4587f716a2d37ca8a, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
