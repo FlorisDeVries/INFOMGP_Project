@@ -7,6 +7,7 @@ public class GoalCollision : MonoBehaviour
 {
     public GravitySystem gS;
     public List<GravityObject> flyByZones;
+    public float AssistMass;
     private bool[] visitedObjects;
 
     // Start is called before the first frame update
@@ -23,8 +24,12 @@ public class GoalCollision : MonoBehaviour
 
     public void alertFlyBy(GameObject gO){
         visitedObjects[flyByZones.IndexOf(gO.GetComponentInParent<GravityObject>())] = true;
-        print($"Alerted of fly-by; missing {visitedObjects.ToList().Count(p => !p)}");
+        int missingCount = visitedObjects.ToList().Count(p => !p);
+        print($"Alerted of fly-by; missing {missingCount}");
         gO.SetActive(false);
+        if(missingCount == 0 && AssistMass > 0){
+            GetComponentInParent<GravityObject>().mass = AssistMass;
+        }
     }
 
     void OnTriggerEnter(Collider other){
